@@ -28,6 +28,7 @@ img {
 html,body{
 	width: 100%;
 	height: 100%;
+  background: #000;
 	overflow: hidden;
 	position: relative;
 }
@@ -103,12 +104,49 @@ html{
   width: 100%;
   height: 100%;
 }
+.bg8{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+}
+.bg8 img{
+  width: 100%;
+  height: 100%;
+}
+.bg9{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+}
+.bg9 img{
+  width: 100%;
+  height: 100%;
+}
+.bg10{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+}
+.bg10 img{
+  width: 100%;
+  height: 100%;
+}
 .f1{
     width: 3rem;
     height: 3rem;
     position: absolute;
     top: 17rem;
     right: 1.2rem 
+}
+.f1a{
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 55%;
+    left: 15%;
 }
 .f2{
   width: 3rem;

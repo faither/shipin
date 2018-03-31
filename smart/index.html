@@ -14,7 +14,7 @@
 		<div class="le">
 			
 		</div>
-		<img src="L/p1待机循环.gif" alt="" id="bg1">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif" alt="" id="bg1">
 		<div class="f1">
 			<div class="f2">	
 			</div>
@@ -29,13 +29,13 @@
 		</div>
 	</div>
 	<div class="bg2">
-		<img src="L/p1转p2输出.gif" alt="" id="bg2">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif" alt="" id="bg2">
 	</div>
 	<div class="bg3">
 		<div class="le1">
 			
 		</div>
-		<img src="L/p2待机循环.gif" alt="" id="bg3">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif" alt="" id="bg3">
 		<div class="xiajian" id="xiajian2">	
 			<div class="jian">
 			</div>
@@ -45,7 +45,7 @@
 		<div class="le1">
 			
 		</div>
-		<img src="L/p3-4循环.gif" alt="" id="bg4">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif" alt="" id="bg4">
 		<div class="f11" id="xiajian3">
 			<div class="f22">	
 			</div>
@@ -56,10 +56,10 @@
 		</div>
 	</div>
 	<div class="bg5">
-		<img src="L/p3-4转场输出.gif" alt="" id="bg5">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p3-4转场输出.gif" alt="" id="bg5">
 	</div>
 	<div class="bg6">
-		<img src="L/p5待机循环.gif" alt="" id="bg6">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif" alt="" id="bg6">
 		<div class="f12" id="xiajian4">
 			<div class="f22">	
 			</div>
@@ -73,8 +73,32 @@
 		<div class="le1">
 			
 		</div>
-		<img src="L/p6循环.gif" alt="" id="bg7">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p6循环.gif" alt="" id="bg7">
 		<div class="xiajian" id="xiajian5">	
+			<div class="jian">
+			</div>
+		</div>
+	</div>
+	<div class="bg8">
+		<div class="f1a" id="xiajian6">
+			<div class="f2">	
+			</div>
+			<div class="f3">
+			</div>
+			<div class="f4">
+			</div>
+		</div>
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p7循环.gif" alt="" id="bg8">
+	</div>
+	<div class="bg9">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p7转场输出.gif" alt="" id="bg9">
+	</div>
+	<div class="bg10">
+		<img src="http://cloud.citymsg.cn/zera_gif/L/p8_0328循环.gif" alt="" id="bg10">
+		<div class="le1">
+			
+		</div>
+		<div class="xiajian" id="xiajian7">	
 			<div class="jian">
 			</div>
 		</div>
@@ -86,7 +110,7 @@
 	<script src="js/loading.js"></script>
 	<script>
 	$(function(){
-		imgLoader(['L/p1待机循环.gif','L/p1转p2输出.gif'], function(percentage){    
+		imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif'], function(percentage){    
 		console.log(percentage)    
 		});   
 		if ('getContext' in document.createElement('canvas')) {
@@ -141,16 +165,18 @@
 			setTimeout(function(){
 				$('.bg2').css('display','none');
 				$('.bg3').css('display','block');
-				// $('#bg2').attr('src','L/p2待机循环.gif')
+				// $('#bg2').attr('src','http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif')
 			},5800)
-			imgLoader(['L/p2待机循环.gif','L/p3-4循环.gif'], function(percentage){    
-			console.log(percentage)    
+			imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif'], function(percentage){        
 			});  
 
 		});
 		$('#xiajian2').click(function(){
 			$('.bg3').css('display','none');
 			$('.bg4').css('display','block');
+			imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p3-4转场输出.gif'], function(percentage){        
+			});  
+
 		});
 		$('#xiajian3').click(function(){
 			$('.bg4').css('display','none');
@@ -158,13 +184,32 @@
 			setTimeout(function(){
 				$('.bg5').css('display','none');
 				$('.bg6').css('display','block');
-				// $('#bg2').attr('src','L/p2待机循环.gif')
+				// $('#bg2').attr('src','http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif')
 			},5800)
+			imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p6循环.gif'], function(percentage){        
+			});
 
 		});
 		$('#xiajian4').click(function(){
 			$('.bg6').css('display','none');
 			$('.bg7').css('display','block');
+			imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p7循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7转场输出.gif'], function(percentage){        
+			});
+
+		});
+		$('#xiajian5').click(function(){
+			$('.bg7').css('display','none');
+			$('.bg8').css('display','block');
+			imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p8_0328循环.gif'], function(percentage){        
+			});
+		});
+		$('#xiajian6').click(function(){
+			$('.bg8').css('display','none');
+			$('.bg9').css('display','block');
+			setTimeout(function(){
+				$('.bg9').css('display','none');
+				$('.bg10').css('display','block');
+			},5800)
 
 		});
 	})
