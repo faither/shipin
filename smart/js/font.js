@@ -12,7 +12,7 @@
 		var width = docEl.getBoundingClientRect().width;
 		maxWidth = maxWidth || 540;
 		width>maxWidth && (width=maxWidth);
-		var rem = width * 10 / designWidth;
+		var rem = width * 12 / designWidth;
 		remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
 	}
 
@@ -46,4 +46,4 @@
 			doc.body.style.fontSize = "16px";
 		}, false);
 	}
-})(1080, 480);
+})(1080, 750);
