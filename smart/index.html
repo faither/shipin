@@ -158,11 +158,12 @@
 	        	$('.bg2').css('display','block'); 
 	        	setTimeout(function(){
 					$('.bg2').css('display','none');
+					loads();
+					imgLoad(bg3,function() {
+			        	removeLoading('test');       
 					$('.bg3').css('display','block');
+			        }) 
 				},5800)     
-	        }) 
-	         imgLoad(bg3,function() {
-	        	removeLoading('test');       
 	        }) 
 			imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif'], function(percentage){        
 			});  
@@ -187,11 +188,12 @@
 	        	$('.bg5').css('display','block'); 
 	        	setTimeout(function(){
 					$('.bg5').css('display','none');
+					loads();
+					imgLoad(bg6,function() {
+	        		removeLoading('test');       
 					$('.bg6').css('display','block');
-				},5800)     
 	        }) 
-	        imgLoad(bg6,function() {
-	        	removeLoading('test');       
+				},5800)     
 	        }) 
 			imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p6循环.gif'], function(percentage){        
 			});
@@ -226,12 +228,13 @@
 	        	$('.bg9').css('display','block'); 
 	        	setTimeout(function(){
 					$('.bg9').css('display','none');
+					loads();
+					imgLoad(bg10,function() {
+			        	removeLoading('test');     
 					$('.bg10').css('display','block');
+			        })  
 				},5800)     
-	        })
-	        imgLoad(bg10,function() {
-	        	removeLoading('test');     
-	        })   
+	        }) 
 
 		});
 	})
