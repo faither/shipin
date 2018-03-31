@@ -112,52 +112,20 @@
 	$(function(){
 		imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif'], function(percentage){    
 		console.log(percentage)    
-		});   
-		if ('getContext' in document.createElement('canvas')) {
-	    HTMLImageElement.prototype.play = function() {
-	        if (this.storeCanvas) {
-	            // 移除存储的canvas
-	            this.storeCanvas.parentElement.removeChild(this.storeCanvas);
-	            this.storeCanvas = null;
-	            // 透明度还原
-	            image.style.opacity = '';
-	        }
-	        if (this.storeUrl) {
-	            this.src = this.storeUrl;    
-	        }
-	    };
-	    HTMLImageElement.prototype.stop = function() {
-	        var canvas = document.createElement('canvas');
-	        // 尺寸
-	        var width = this.width, height = this.height;
-	        if (width && height) {
-	            // 存储之前的地址
-	            if (!this.storeUrl) {
-	                this.storeUrl = this.src;
-	            }
-	            // canvas大小
-	            canvas.width = width;
-	            canvas.height = height;
-	            // 绘制图片帧（第一帧）
-	            canvas.getContext('2d').drawImage(this, 0, 0, width, height);
-	            // 重置当前图片
-	            try {
-	                this.src = canvas.toDataURL("image/gif");
-	            } catch(e) {
-	                // 跨域
-	                this.removeAttribute('src');
-	                // 载入canvas元素
-	                canvas.style.position = 'absolute';
-	                // 前面插入图片
-	                this.parentElement.insertBefore(canvas, this);
-	                // 隐藏原图
-	                this.style.opacity = '0';
-	                // 存储canvas
-	                this.storeCanvas = canvas;
-	            }
-	        }
-	    };
-	}
+		});  
+		 function imgLoad(img, callback) {
+            var timer = setInterval(function() {
+                if(img.complete) {
+                    callback(img)
+                    clearInterval(timer)
+                }
+            }, 500)
+        }
+        imgLoad(bg1,function() {
+        	// alert('加载完毕')
+        	$('.bg1').css('display','block');
+             
+        }) 
 		
 		$('#xiajian1').click(function(){
 			$('.bg1').css('display','none');
