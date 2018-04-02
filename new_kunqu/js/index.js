@@ -1,7 +1,43 @@
 $(function(){
 		imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif','http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p6循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p8_0328循环.gif'], function(percentage){    
-			console.log(percentage)    
+			console.log(percentage)
+			var jindu=Math.round(100*percentage)+"%";
 		}); 
+		// 音频播放
+		var audio=$('#audio')[0];
+	   	audio.play();
+	   $('.le,.le1').click(function(event){
+			event.stopPropagation();//防止冒泡
+	        if(audio.paused){ 
+	        	// alert(1)
+	           audio.play(); //播放
+	           $('.le,.le1').css('opacity','1');
+	            $('.le,.le1').css('animation',' move 3s linear infinite');
+	        }else{//当前是播放状态
+	           audio.pause(); //暂停
+	            $('.le,.le1').css('opacity','0.7');
+	            $('.le,.le1').css('animation','none');
+	           return
+	        }
+		})
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			audio.play();
+			$('.le,.le1').click(function(event){
+			event.stopPropagation();//防止冒泡
+	        if(audio.paused){ 
+	        	// alert(1)
+	           audio.play(); //播放
+	           $('.le,.le1').css('opacity','1');
+	            $('.le,.le1').css('animation',' move 3s linear infinite');
+	        }else{//当前是播放状态
+	           audio.pause(); //暂停
+	            $('.le,.le1').css('opacity','0.7');
+	            $('.le,.le1').css('animation','none');
+	           return
+	        }
+		})
+			}, false); 
+		
 		function loads(){
 			$('body').loading({
 				loadingWidth:240,
@@ -35,7 +71,7 @@ $(function(){
              
         }) 
 		
-		$('#xiajian1').click(function(){
+		$('#xiajian1,#cricle').click(function(){
 			$('.bg1').css('display','none');
 	        $('.bg2').css('display','block'); 
 	        	setTimeout(function(){
@@ -73,5 +109,13 @@ $(function(){
 					$('.bg10').css('display','block');
 				},5800)     
 
+		});
+		$('#xiajian7').click(function(){
+			$('.bg10').css('display','none');
+	        $('.bg11').css('display','block');      
+		});
+		$('#xiajian8').click(function(){
+			$('.bg11').css('display','none');
+	        $('.bg12').css('display','block');      
 		});
 	})

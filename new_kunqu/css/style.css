@@ -133,6 +133,41 @@ html,body{
   width: 100%;
   height: 100%;
 }
+.bg11{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+}
+.bg11 #bg11{
+  width: 100%;
+  height: 100%;
+}
+.bg11 #p9_zi{
+    width: 11rem;
+    height: 41rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -5.5rem;
+    top: 12%;
+  }
+.bg12{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+}
+.bg12 #bg12{
+  width: 100%;
+  height: 100%;
+}
+.bg12 #p10_zi{
+    width: 18rem;
+    height: 11rem;
+    position: absolute;
+    left: 8%;
+    top: 6%;
+  }
 .f1{
     width: 3rem;
     height: 3rem;
@@ -271,8 +306,8 @@ html,body{
   right:1.4rem;
   background: url(../L/button_leb.png) no-repeat;
   background-size: 100% 100%;
- /* -webkit-animation: move 2s linear infinite;
-  animation: move 2s linear infinite; */ 
+  -webkit-animation: move 2s linear infinite;
+  animation: move 2s linear infinite;  
 }
 .le1{
   width: 2.7rem;
@@ -282,8 +317,8 @@ html,body{
   right:1.4rem;
   background: url(../L/button_le.png) no-repeat;
   background-size: 100% 100%;
- /* -webkit-animation: move 2s linear infinite;
-  animation: move 2s linear infinite; */ 
+  -webkit-animation: move 3s linear infinite;
+  animation: move 3s linear infinite;  
 }
 @keyframes margins {
   0%   {margin-top: 1rem;}
@@ -294,4 +329,10 @@ html,body{
   0%   {margin-top: 1rem;}
   50%   {margin-top: 0rem;}
   100% {margin-top: 1rem;}
+}
+#topLoader{
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  margin-left: -2.8rem;
 }
