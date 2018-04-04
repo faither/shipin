@@ -1,32 +1,78 @@
 $(function(){
-		imgLoader(['http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif','http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p6循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p8_0328循环.gif'], function(percentage){    
-				console.log(percentage)
-				percentages=percentage
-		}); 
-		  options = {
+		imgList=['http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif','http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p6循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p8_0328循环.gif','http://cloud.citymsg.cn/zera_gif/L/p5转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p4待机循环.gif']
+        var ld = new loader(imgList);
+        ld.loadend(function(i){
+        }).complete(function(){
+        		 image1.play()
+			 	 $('.bg1').css('display','block');
+				 $('#p1').css('display','none');
+				 $('body').css('background','#000');
+				 $('.v3').css('display','none');
+        });
+        $('#bg1').attr('src',imgList[0])
+		$('#bg2').attr('src',imgList[1])
+		$('#bg3').attr('src',imgList[2])
+		$('#bg4').attr('src',imgList[3])
+		$('#bg5').attr('src',imgList[4])
+		$('#bg6').attr('src',imgList[5])
+		$('#bg7').attr('src',imgList[6])
+		$('#bg8').attr('src',imgList[7])
+		$('#bg9').attr('src',imgList[8])
+		$('#bg10').attr('src',imgList[9])
+		$('#bg13').attr('src',imgList[10])
+		$('#bg14').attr('src',imgList[11])
+		 options = {
 			 img1: 'L/v1.png',
 			 img2: 'L/v2.png',				   
-			 speed: 50,			   
+			 speed: 500,			   
 			 percent: 10,
-			 limit: 73,
+			 limit: 89,
 			 onInit: function(){console.log('init');},
-			 onProgress: function(p){/*console.log('progress',p);*/},
+			 onProgress: function(p){},
 			 onComplete: function(p){
 			 	console.log('complete',p);
-			 	// image1.play(); 
-			 if(percentages==1){
 			 	image1.play()
-			 	$('.bg1').css('display','block');
-		        $('#p1').css('display','none');
-		        $('body').css('background','#000');
-		        $('.v3').css('display','none');
-			 }
-		        
+			 	 $('.bg1').css('display','block');
+				 $('#p1').css('display','none');
+				 $('body').css('background','#000');
+				 $('.v3').css('display','none');
 			}
 		 };
-
 		 myplugin = $('#p1').cprogress(options);
-		 var myplugin;
+		// 音频播放
+		var audio=$('#audio')[0];
+			audio.play();
+			$('.le1').click(function(event){
+			event.stopPropagation();//防止冒泡
+	        if(audio.paused){ 
+	        	// alert(1)
+	           audio.play(); //播放
+	           $('.le1').css('opacity','1');
+	            $('.le1').css('animation',' move 3s linear infinite');
+	        }else{//当前是播放状态
+	           audio.pause(); //暂停
+	            $('.le1').css('opacity','0.7');
+	            $('.le1').css('animation','none');
+	           return
+	        }
+		})
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			audio.play();
+			$('.le1').click(function(event){
+			event.stopPropagation();//防止冒泡
+	        if(audio.paused){ 
+	        	// alert(1)
+	           audio.play(); //播放
+	           $('.le1').css('opacity','1');
+	            $('.le1').css('animation',' move 3s linear infinite');
+	        }else{//当前是播放状态
+	           audio.pause(); //暂停
+	            $('.le1').css('opacity','0.7');
+	            $('.le1').css('animation','none');
+	           return
+	        }
+		})
+			}, false); 
 		 if ('getContext' in document.createElement('canvas')) {
 		    HTMLImageElement.prototype.play = function() {
 		        if (this.storeCanvas) {
@@ -75,6 +121,7 @@ $(function(){
 		}
 		var image1=document.getElementById("bg1");
 		// image1.stop(); 
+		console.log(imgList[0])
 		var image2=document.getElementById("bg2");
 		// image2.stop();
 		var image3=document.getElementById("bg3");
@@ -162,23 +209,4 @@ $(function(){
 			image6.play()
 	        $('.bg6').css('display','block');      
 		});
-		// 音频播放
-		var audio=$('#audio')[0];
-		document.addEventListener("WeixinJSBridgeReady", function () {
-			audio.play();
-			$('.le1').click(function(event){
-			event.stopPropagation();//防止冒泡
-	        if(audio.paused){ 
-	        	// alert(1)
-	           audio.play(); //播放
-	           $('.le1').css('opacity','1');
-	            $('.le1').css('animation',' move 3s linear infinite');
-	        }else{//当前是播放状态
-	           audio.pause(); //暂停
-	            $('.le1').css('opacity','0.7');
-	            $('.le1').css('animation','none');
-	           return
-	        }
-		})
-			}, false); 
 	})
