@@ -7,6 +7,7 @@
 
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="dist/css/swiper.min.css">
+  <link rel="stylesheet" href="dist/css/loading.css">
 
   <!-- Demo styles -->
   <style>
@@ -30,15 +31,25 @@
     .swiper-container {
       width: 100%;
       position: absolute;
-      bottom: 2rem;
+      bottom: 0.8rem;
       left: 0px;
       
     }
-    .swiper-slide {
+     .swiper-slide {
       background-position: center;
-      background-size: cover;
-      width: 22.84rem;
-      height: 28.14rem;
+      background-size: 100% 100%;
+      width: 10.278rem;
+      height: 12.663rem;
+    }
+    .filePicker{
+      width: 100%;
+      height: 100%;
+    }
+    .filePicker input{
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0 ;
     }
   </style>
 </head>
@@ -47,14 +58,14 @@
   <div class="draw">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" bg='1' style="background-image:url(images/1.png)"></div>
-        <div class="swiper-slide" bg='2' style="background-image:url(images/2.png)"></div>
-        <div class="swiper-slide" bg='3' style="background-image:url(images/3.png)"></div>
-        <div class="swiper-slide" bg='4' style="background-image:url(images/4.png)"></div>
-        <div class="swiper-slide" bg='5' style="background-image:url(images/5.png)"></div>
-        <div class="swiper-slide" bg='6' style="background-image:url(images/6.png)"></div>
-        <div class="swiper-slide" bg='7' style="background-image:url(images/7.png)"></div>
-        <div class="swiper-slide" bg='8' style="background-image:url(images/8.png)"></div>
+        <div class="swiper-slide" bg='1' style="background-image:url(images/1.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
+        <div class="swiper-slide" bg='2' style="background-image:url(images/2.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
+        <div class="swiper-slide" bg='3' style="background-image:url(images/3.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
+        <div class="swiper-slide" bg='4' style="background-image:url(images/4.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
+        <div class="swiper-slide" bg='5' style="background-image:url(images/5.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
+        <div class="swiper-slide" bg='6' style="background-image:url(images/6.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
+        <div class="swiper-slide" bg='7' style="background-image:url(images/7.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
+        <div class="swiper-slide" bg='8' style="background-image:url(images/8.png)"><div class="filePicker"><input type="file" onchange="imgchange(event)" accept=".gif,.jpg,.jpeg,.png"></div></div>
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
@@ -63,7 +74,9 @@
   <!-- Swiper JS -->
   <script src="dist/js/jquery-1.7.2.js"></script>
   <script src="dist/js/swiper.min.js"></script>
-  <!-- <script src="dist/js/font.js"></script> -->
+  <script src="dist/js/fonter.js"></script>
+  <script src="dist/js/loading.js"></script>
+ 
 
   <!-- Initialize Swiper -->
   <script>
@@ -83,11 +96,56 @@
         el: '.swiper-pagination',
       },
     });
+     var img;
+     var id;
    $('.swiper-wrapper .swiper-slide').each(function(index,item){
           $(this).click(function(){
-            console.log(index);
+            console.log($(this).attr('bg'));
+            id=$(this).attr('bg');
           })
    })
+   function loading1() {
+    $('body').loading({
+      loadingWidth:240,
+      title:'请稍等!',
+      name:'test',
+      discription:'图片正在加载中...',
+      direction:'column',
+      type:'origin',
+      // originBg:'#71EA71',
+      originDivWidth:40,
+      originDivHeight:40,
+      originWidth:6,
+      originHeight:6,
+      smallLoading:false,
+      loadingMaskBg:'rgba(0,0,0,0.2)',
+      mustRelative:true
+    });
+  }
+   function imgchange(e){
+      var dom=$('.filePicker input');
+       img=e.target.value;
+      var reader = new FileReader();
+      reader.onload = (function (file) {
+        return function (e) {
+       console.log(this.result); //这个就是base64的数据了;
+       var img_value=this.result;
+       loading1();
+         $.ajax({
+             url: 'srx.citymsg.cn/P-tencent/demo.php?img='+img+'&id='+id,
+             async: false,
+             type: 'get',
+             success: function(data){
+              console.log(data)
+             removeLoading('test');
+             }
+      })
+     }
+   })(e.target.files[0]);
+    reader.readAsDataURL(e.target.files[0]);
+      console.log(img)
+      
+   }
   </script>
 </body>
 </html>
