@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Swiper demo</title>
+  <title>昆曲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
   <!-- Link Swiper's CSS -->
@@ -126,13 +126,21 @@
       var dom=$('.filePicker input');
        img=e.target.value;
       var reader = new FileReader();
+      wx.chooseImage({
+        count: 1, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (res) {
+            var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+        }
+    });
       reader.onload = (function (file) {
         return function (e) {
        console.log(this.result); //这个就是base64的数据了;
        var img_value=this.result;
        loading1();
          $.ajax({
-             url: 'srx.citymsg.cn/P-tencent/demo.php?img='+img+'&id='+id,
+             url: 'srx.citymsg.cn/P-tencent/demo.php?img='+img_value+'&id='+id,
              async: false,
              type: 'get',
              success: function(data){
