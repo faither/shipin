@@ -183,8 +183,8 @@ html,body{
   height: 100%;
 }
 .bg12 #p10_zi{
-    width: 24rem;
-    height: 15rem;
+    width: 20.4rem;
+    height: 12.75rem;
     position: absolute;
     left: 6%;
     top: 3.5%;
@@ -396,11 +396,11 @@ html,body{
   height: 11rem;
 }
 .er_weima{
-	width: 10.9rem;	
-	height: 17rem;
-	background: url(../L/two_weima.png) no-repeat;
-	background-size: 100% 100%;
-	position: absolute;
-    left: 6%;
-    top:32%;
+	width: 9.265rem;
+  height: 14.45rem;
+  background: url(../L/two_weima.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 6%;
+  top: 30%;
 }
