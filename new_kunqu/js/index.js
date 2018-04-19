@@ -1,5 +1,5 @@
 $(function(){
-		imgList=['http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif','http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p6循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p8_0328循环.gif','http://cloud.citymsg.cn/zera_gif/L/p5转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p4待机循环.gif']
+		imgList=['http://cloud.citymsg.cn/zera_gif/L/p1待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p1转p2输出.gif','http://cloud.citymsg.cn/zera_gif/L/p2待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4循环.gif','http://cloud.citymsg.cn/zera_gif/L/p3-4转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p5待机循环.gif','http://cloud.citymsg.cn/zera_gif/L/p6循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7循环.gif','http://cloud.citymsg.cn/zera_gif/L/p7转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p8_0328循环.gif','http://cloud.citymsg.cn/zera_gif/L/p5转场输出.gif','http://cloud.citymsg.cn/zera_gif/L/p4待机循环.gif','http://cloud.citymsg.cn/zera_gif/image/logo.png']
         var ld = new loader(imgList);
         ld.loadend(function(i){
         }).complete(function(){
@@ -21,6 +21,7 @@ $(function(){
 		$('#bg10').attr('src',imgList[9])
 		$('#bg13').attr('src',imgList[10])
 		$('#bg14').attr('src',imgList[11])
+		$('#logo').attr('src',imgList[12])
 		 options = {
 			 img1: 'L/v1.png',
 			 img2: 'L/v2.png',				   
