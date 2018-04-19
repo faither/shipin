@@ -144,13 +144,13 @@ html,body{
   height: 100%;
 }
 .bg11 #p9_zi{
-    width: 11rem;
-    height: 41rem;
+    width: 9rem;
+    height: 38.57rem;
     position: absolute;
     left: 50%;
-    margin-left: -5.5rem;
+    margin-left: -4.5rem;
     top: 50%;
-    margin-top: -20.5rem;
+    margin-top: -25.5rem;
   }
 .bg12{
   width: 100%;
@@ -403,4 +403,14 @@ html,body{
   position: absolute;
   left: 6%;
   top: 23%;
+}
+.logo{
+  width: 24rem;
+  height: 12.4rem;
+  background: url(../L/logo.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  margin-left: -12rem;
 }
